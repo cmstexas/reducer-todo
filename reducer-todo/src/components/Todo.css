@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Lora&display=swap');
+
+html * {
+    background-color: #172853;
+    color: white;
+    font-family: Lora;
+}
+
+.completed-task {
+    text-decoration: line-through;
+    color: red;
+}
+
+h1 {
+    text-align: center;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border: 1.5px solid black;
+    padding: -50rem;
+    margin: 3rem;
+    padding-top: 1.5rem;
+    width: 50%;
+    margin-left: 20rem;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.clear-btn {
+    background-color: beige;
+    color: black;
+    margin-bottom: 2rem;
+}
+
+.addnew-btn {
+    background-color: beige;
+    color: black;
+}
