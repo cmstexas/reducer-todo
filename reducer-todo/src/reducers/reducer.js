@@ -1,40 +1,47 @@
 
 export const initialState = {
-
+  todoArray: [
+    {
   item: 'Learn about reducers',
   completed: false,
   id: 3892987589
+}
+  ],
 };
 
-export const initialReducer = (state, action) => {
-    switch(action.type) {
-        case 'TOGGLE_ITEM':
+export function reducer (state, action) {     //takes 2 arguments, state and action. perform whatever action on state and return state. it's a reducer function.
+    switch(action.type) {      //acts as an if/else tree, compare variable to different cases it could be
+      case 'TOGGLE_ITEM':
         return {
           ...state,
-          editing: !state.editing
+          todoArray: state.todoArray.map(todo => {
+            if (todo.id === action.paylaod) {
+              return {
+                ...todo,
+                completed: !todo.completed
+              };
+            } else {
+              return todo;
+            }
+          })
         };
       case 'ADD_ITEM':
-          const newItem = {
-              id: Date.now(),
-              item: action.payload,
-              editing: !state.editing,
-              completed: false
-          }
         return {
-          ...state, newItem
+          ...state, todoArray: [...state.todoArray, {
+            id: Date.now(),
+            item: action.payload,
+            completed: false
+          } ]
         };
 
         case 'CLEAR_COMPLETED':
-            const clearItem = state.filter(item => !item.completed)
-            return [...clearItem]
+          return {
+            ...state,
+            todorray: state.todoArray.filter(todo => {
+              return !todo.completed;
+            })
+          }
 
-        case 'TOGGLE_ITEM':
-                const toggleItem = state.map(item => {
-                if(item.id === payload)
-                    return {...item, completed: !item.completed}
-                return item
-                })
-                return [...toggleItem]
         default:
             return state;
     }

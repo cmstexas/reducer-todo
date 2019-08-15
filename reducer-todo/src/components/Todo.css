@@ -49,3 +49,8 @@ form {
     background-color: beige;
     color: black;
 }
+
+
+.completed {
+    text-decoration: line-through;
+}
